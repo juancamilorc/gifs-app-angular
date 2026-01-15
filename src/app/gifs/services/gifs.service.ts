@@ -12,7 +12,6 @@ const GIF_KEY = 'gifs';
 const loadFromLocalStorage = () => {
   const gifsFromLocalStorage = localStorage.getItem(GIF_KEY) ?? '{}';
   const gifs = JSON.parse(gifsFromLocalStorage);
-  console.log(gifs);
   return gifs;
 }
 
@@ -28,7 +27,6 @@ export class GifService {
     for (let i = 0; i < this.trengingGifs().length; i += 3) {
       groups.push( this.trengingGifs().slice(i, i + 3));
     }
-    console.log(groups);
     return groups;
   })
 
@@ -56,7 +54,6 @@ export class GifService {
         const gifs = GifMapper.mapGiphyItemtoGifArray(resp.data);
         this.trengingGifs.set(gifs);
         this.trengingGifsLoading.set(false);
-        console.log({ gifs });
       });
   }
 
